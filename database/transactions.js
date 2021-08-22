@@ -5,6 +5,10 @@ const transactionSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
+  customer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'customer',
+  },
   transactionType: String,
   amountUSD: { type: Number, require: true },
   amountHGT: { type: Number, require: true },

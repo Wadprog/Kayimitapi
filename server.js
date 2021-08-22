@@ -4,7 +4,6 @@
 
 // Dependencies
 const express = require('express');
-const path = require('path');
 const passport = require('passport');
 const PassportLocal = require('passport-local');
 const cors = require('cors');
@@ -15,7 +14,7 @@ const session = require('express-session');
 const environnement = require('./config');
 const connectDB = require('./database');
 const User = require('./database/user');
-// const isLoggedIn = require('./middleware/auth');
+const isLoggedIn = require('./middleware/authenticate');
 
 // Configuring the server
 const app = express();
@@ -52,14 +51,17 @@ app.use(methodOverride('_method'));
 
 // connecting to database
 connectDB();
+app.use(isLoggedIn);
 app.use((req, res, next) => {
+  // eslint-disable-next-line no-console
   console.log(req.originalUrl);
   return next();
 });
 // Serving the routes
 app.use('/login', require('./routes/auth'));
 app.use('/user', require('./routes/user'));
-app.use('/transactions', require('./routes/transactions'));
+app.use('/transactions', require('./routes/transaction'));
+app.use('/customers', require('./routes/customer'));
 // app.use('/customers', require('./routes/customer'));
 // app.use('/users', require('./routes/user'));
 // app.use('/transactions', require('./routes/transactions'));

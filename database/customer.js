@@ -10,38 +10,11 @@ const customerSchema = mongoose.Schema({
   firstName: String,
   middleName: String,
   lastName: String,
-  membershipPlan: {
-    type: String,
-    enum: ['black', 'gold'],
-    default: 'black',
-  },
-  repairReason: String,
-  reportNote: String,
-  email: String,
   birthDate: String,
-  socialSecurity: { type: String },
-  homeTelephone: { type: String },
-  address: { type: String },
-  city: { type: String },
-  state: { type: String },
-  zip: { type: String },
-  status: { type: String },
-  previousAddress: { type: String },
-  previousCity: { type: String },
-  previousState: { type: String },
-  previousZip: { type: String },
-  mobile: { type: String },
-  startDate: { type: String },
-  addedDate: { type: String },
-  workTelephone: { type: String },
-  phoneExt: { type: String },
-  fax: { type: String },
-  country: { type: String },
-  previousCountry: { type: String },
-  referredBy: { type: String },
-  affiliateCompany: { type: String },
-  assignedTo: { type: String },
-  
+  idNumber: String,
+  telephone: String,
+  address: String,
+  idType: String,
 });
 
 customerSchema.virtual('fullName').get(function () {
@@ -49,4 +22,4 @@ customerSchema.virtual('fullName').get(function () {
 });
 
 // Exporting the Model
-module.exports = mongoose.model('Customer', customerSchema);
+module.exports = mongoose.model('customer', customerSchema);
