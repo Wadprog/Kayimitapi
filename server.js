@@ -71,9 +71,10 @@ app.use('/customers', require('./routes/customer'));
 
 // Handling all errors
 
-app.get('*', (req, res) =>
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
-);
+app.get('*', (req, res) => {
+  console.log('hey');
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
