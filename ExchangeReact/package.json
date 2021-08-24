@@ -1,16 +1,16 @@
 {
-  "name": "argon-dashboard-react",
+  "name": "kayimit_exchange",
   "version": "1.2.1",
-  "description": "React version of Argon Dashboard by Creative Tim",
+  "description": "Kayimit Exchange",
   "main": "index.js",
   "keywords": [
     "react",
     "reactjs"
   ],
-  "author": "Creative Tim",
+  "author": "Wadson Vaval",
   "license": "MIT",
   "bugs": {
-    "url": "google.com"
+    "url": "https://google.com"
   },
   "scripts": {
     "start": "react-dotenv &&  react-scripts start",
