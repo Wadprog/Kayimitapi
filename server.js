@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Where all server related stuff lives
  */
@@ -6,10 +7,12 @@
 const express = require('express');
 const passport = require('passport');
 const PassportLocal = require('passport-local');
+const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+
 // Custom dependencies
 const environnement = require('./config');
 const connectDB = require('./database');
@@ -45,18 +48,14 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Serving statics files
-app.use(express.static('public'));
+app.use(express.static('build'));
 // override with POST
 app.use(methodOverride('_method'));
 
 // connecting to database
 connectDB();
 app.use(isLoggedIn);
-app.use((req, res, next) => {
-  // eslint-disable-next-line no-console
-  console.log(req.originalUrl);
-  return next();
-});
+
 // Serving the routes
 app.use('/login', require('./routes/auth'));
 app.use('/user', require('./routes/user'));
@@ -64,7 +63,6 @@ app.use('/transactions', require('./routes/transaction'));
 app.use('/customers', require('./routes/customer'));
 // app.use('/customers', require('./routes/customer'));
 // app.use('/users', require('./routes/user'));
-// app.use('/transactions', require('./routes/transactions'));
 
 // Not found route error handler.
 // app.use('*', (req, res) => res.render('errors/404'));
@@ -72,6 +70,10 @@ app.use('/customers', require('./routes/customer'));
 // app.use(mongooseValidation)
 
 // Handling all errors
+
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+);
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
@@ -82,7 +84,6 @@ app.use((err, req, res, next) => {
 // Starting the server
 const PORT = process.env.PORT || environnement.PORT;
 app.listen(PORT, () =>
-  // eslint-disable-next-line no-console
   console.log(
     `Server in listening in ${environnement.NAME} environment on port ${environnement.PORT}`
   )
