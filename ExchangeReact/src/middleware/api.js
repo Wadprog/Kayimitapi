@@ -9,7 +9,6 @@ const api = (store) => (next) => async (action) => {
   next(action);
   try {
     const response = await axios({
-      baseURL: env.BASE_URL,
       ...action.payload,
     });
 
