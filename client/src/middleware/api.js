@@ -10,7 +10,7 @@ const api = (store) => (next) => async (action) => {
   try {
     console.log('/api' + action.payload.url);
     const response = await axios({
-      baseURL: env.BASE_URL,
+      // baseURL: env.BASE_URL,
       ...action.payload,
       url: `/api${action.payload.url}`,
     });
