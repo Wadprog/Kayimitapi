@@ -63,9 +63,8 @@ const Transactions = () => {
       rateId,
     };
 
-    if (ctx?.selectedCustomer)
-      data = { ...formData, customer: ctx?.selectedCustomer?._id };
-    formEvents.resetForm();
+    if (ctx?.selectedCustomer) data.customer = ctx?.selectedCustomer?._id;
+    //formEvents.resetForm();
     return dispatch(postTransaction(data));
     return console.log({ data });
   };

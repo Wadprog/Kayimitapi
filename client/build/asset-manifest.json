@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.aaee00c6.chunk.css",
-    "main.js": "/static/js/main.16eab638.chunk.js",
-    "main.js.map": "/static/js/main.16eab638.chunk.js.map",
+    "main.js": "/static/js/main.d18268c3.chunk.js",
+    "main.js.map": "/static/js/main.d18268c3.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.b4247959.js",
     "runtime-main.js.map": "/static/js/runtime-main.b4247959.js.map",
     "static/css/2.365ee758.chunk.css": "/static/css/2.365ee758.chunk.css",
@@ -23,7 +23,7 @@
     "static/js/3.2617c1af.chunk.js.LICENSE.txt": "/static/js/3.2617c1af.chunk.js.LICENSE.txt",
     "static/js/4.eac031f3.chunk.js.LICENSE.txt": "/static/js/4.eac031f3.chunk.js.LICENSE.txt",
     "static/js/5.56cbcacf.chunk.js.LICENSE.txt": "/static/js/5.56cbcacf.chunk.js.LICENSE.txt",
-    "static/js/main.16eab638.chunk.js.LICENSE.txt": "/static/js/main.16eab638.chunk.js.LICENSE.txt",
+    "static/js/main.d18268c3.chunk.js.LICENSE.txt": "/static/js/main.d18268c3.chunk.js.LICENSE.txt",
     "static/media/all.min.css": "/static/media/fa-solid-900.efbd5d20.eot",
     "static/media/nucleo.css": "/static/media/nucleo-icons.d6a66724.ttf",
     "static/media/profile-cover.jpg": "/static/media/profile-cover.97899245.jpg"
@@ -33,6 +33,6 @@
     "static/css/2.365ee758.chunk.css",
     "static/js/2.3009dfdb.chunk.js",
     "static/css/main.aaee00c6.chunk.css",
-    "static/js/main.16eab638.chunk.js"
+    "static/js/main.d18268c3.chunk.js"
   ]
 }

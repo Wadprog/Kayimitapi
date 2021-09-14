@@ -67,7 +67,7 @@ const UserTransactions = ({ renderData }) => {
         <span>
           {new Intl.NumberFormat('ht', {
             style: 'currency',
-            currency: 'USD', //@Todo current curency 
+            currency: rowData?.originLabel?.trim() || 'USD', 
           }).format(rowData?.origin)}
         </span>
       ),
@@ -80,7 +80,7 @@ const UserTransactions = ({ renderData }) => {
         <span>
           {new Intl.NumberFormat('ht', {
             style: 'currency',
-            currency: rowData?.destinationLabel?.trim()||'USD',
+            currency: rowData?.destinationLabel?.trim() || 'USD',
           }).format(rowData.destination)}
         </span>
       ),
