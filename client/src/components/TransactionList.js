@@ -67,8 +67,8 @@ const UserTransactions = ({ renderData }) => {
         <span>
           {new Intl.NumberFormat('ht', {
             style: 'currency',
-            currency: rowData.originLabel.trim(),
-          }).format(rowData.origin)}
+            currency: 'USD', //@Todo current curency 
+          }).format(rowData?.origin)}
         </span>
       ),
     },
@@ -80,7 +80,7 @@ const UserTransactions = ({ renderData }) => {
         <span>
           {new Intl.NumberFormat('ht', {
             style: 'currency',
-            currency: rowData.destinationLabel.trim(),
+            currency: rowData?.destinationLabel?.trim()||'USD',
           }).format(rowData.destination)}
         </span>
       ),
@@ -92,7 +92,7 @@ const UserTransactions = ({ renderData }) => {
         <span>
           {new Intl.NumberFormat('ht', {
             style: 'currency',
-            currency: rowData.rateLabel,
+            currency: rowData?.rateLabel || 'USD',
           }).format(rowData.xChangeRate)}
         </span>
       ),

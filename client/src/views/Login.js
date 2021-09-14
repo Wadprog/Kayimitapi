@@ -28,35 +28,35 @@ const LoginScreen = () => {
   useEffect(() => dispatch(getEstablishments()), [dispatch]);
 
   const handleLogin = (credentials) => dispatch(Login(credentials));
-  return establishments?.list?.length ? (
-    <PageWrapper isLoading={auth.loading || establishments.loading}>
-      <Col lg="5" md="7">
-        <Card className="bg-secondary shadow border-0">
-          <CardHeader className="bg-transparent pb-5">
-            <h1 className="mt-3 text-center">
-              Kayimit<span className="text-muted">Exchange</span>
-            </h1>
-          </CardHeader>
-          <CardBody className="px-lg-5 py-lg-5">
-            <Form
-              validationSchema={ValidationSchema}
-              initialValues={{
-                username: '',
-                password: '',
-                establishment: '',
-              }}
-              onSubmit={handleLogin}
-            >
-              <Select
-                icon="ni ni-shop"
-                placeholder=" Assign Establishments"
-                name="establishment"
-                options={establishments.list.map((establishment) => ({
-                  label: establishment.city,
-                  value: establishment._id,
-                }))}
-              />
-              {/* <Field
+  return(
+  <PageWrapper isLoading={auth.loading || establishments.loading}>
+    <Col lg="5" md="7">
+      <Card className="bg-secondary shadow border-0">
+        <CardHeader className="bg-transparent pb-5">
+          <h1 className="mt-3 text-center">
+            Kayimit<span className="text-muted">Exchange</span>
+          </h1>
+        </CardHeader>
+        <CardBody className="px-lg-5 py-lg-5">
+          <Form
+            validationSchema={ValidationSchema}
+            initialValues={{
+              username: '',
+              password: '',
+              establishment: '',
+            }}
+            onSubmit={handleLogin}
+          >
+            <Select
+              icon="ni ni-shop"
+              placeholder=" Assign Establishments"
+              name="establishment"
+              options={establishments.list.map((establishment) => ({
+                label: establishment.city,
+                value: establishment._id,
+              }))}
+            />
+            {/* <Field
                 autoFocus
                 autoCapitalize="none"
                 icon="ni ni-shop"
@@ -65,46 +65,41 @@ const LoginScreen = () => {
                 type="text"
               /> */}
 
-              <Field
-                autoCapitalize="none"
-                icon="ni ni-email-83"
-                placeholder="Email/username"
-                name="username"
-                type="text"
-                autoComplete="new-email"
-              />
-              <Field
-                autoCapitalize="none"
-                autoCorrect="false"
-                icon="ni ni-lock-circle-open"
-                placeholder="Password"
-                name="password"
-                type="password"
-                autoComplete="new-email"
-              />
+            <Field
+              autoCapitalize="none"
+              icon="ni ni-email-83"
+              placeholder="Email/username"
+              name="username"
+              type="text"
+              autoComplete="new-email"
+            />
+            <Field
+              autoCapitalize="none"
+              autoCorrect="false"
+              icon="ni ni-lock-circle-open"
+              placeholder="Password"
+              name="password"
+              type="password"
+              autoComplete="new-email"
+            />
 
-              <Submit title="Login" />
-            </Form>
-          </CardBody>
-        </Card>
-        <Row className="mt-3">
-          <Col xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Forgot password?</small>
-            </a>
-          </Col>
-        </Row>
-      </Col>
-    </PageWrapper>
-  ) : (
-    <PageWrapper>
-      <Setup />
-    </PageWrapper>
-  );
+            <Submit title="Login" />
+          </Form>
+        </CardBody>
+      </Card>
+      <Row className="mt-3">
+        <Col xs="6">
+          <a
+            className="text-light"
+            href="#pablo"
+            onClick={(e) => e.preventDefault()}
+          >
+            <small>Forgot password?</small>
+          </a>
+        </Col>
+      </Row>
+    </Col>
+  </PageWrapper>)
 };
 
 export default LoginScreen;
